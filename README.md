@@ -4,7 +4,7 @@
 ## 📈 Executive Summary
 This repository contains the source code for a robust **Reinforcement Learning (RL)** intraday trading strategy developed for the Inter IIT Tech Meet 14.0. The model leverages **Proximal Policy Optimization (PPO)** to navigate high-frequency market data, utilizing a rich state space of technical indicators, Heikin-Ashi structures, and adaptive volatility measures.
 
-[cite_start]The strategy is rigorously evaluated on two distinct tickers, EBX and EBY, demonstrating highly profitable and robust performance profiles[cite: 9].
+The strategy is rigorously evaluated on two distinct tickers, EBX and EBY, demonstrating highly profitable and robust performance profiles.
 
 ### 🏆 Performance Highlights
 The RL agent demonstrated exceptional risk-adjusted returns and stability in out-of-sample evaluations. [cite_start]According to the performance report, the strategy achieved the following metrics[cite: 18]:
@@ -76,7 +76,7 @@ Team33_InterIIT/
 
 3.  **Data Setup:**
     * Place raw CSV data files in folders named `EBX` and `EBY` in the root directory.
-    * *Note: The `alpha_research` module is required for the `backtest_ebullient` mode. Ensure `alpha_research.py` is in your PYTHONPATH if running full event-driven simulations.*
+    * *Note: The `alpha_research` module is required for the `backtest_ebullient` mode. Ensure `alpha_research.py` is in your PYTHON PATH if running full event-driven simulations.*
 
 ---
 
@@ -118,7 +118,7 @@ The strategy produces comprehensive visual diagnostics found in `test_trade_plot
 * **Equity Curves:** Visual confirmation of steady capital growth.
 * **Drawdown Charts:** Monitoring of risk depth and duration.
 * **Trade Visualization:** Candlestick charts overlayed with Entry/Exit points for every test day.
-* [cite_start]**Training Metrics:** Entropy loss and Explained Variance plots to verify convergence[cite: 31, 33].
+* **Training Metrics:** Entropy loss and Explained Variance plots to verify convergence.
 
 ---
 
