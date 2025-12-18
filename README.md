@@ -65,8 +65,8 @@ Team33_InterIIT/
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/Team33/InterIIT-Algo-Trading.git](https://github.com/Team33/InterIIT-Algo-Trading.git)
-    cd InterIIT-Algo-Trading
+    git clone [https://github.com/ishreyanshkumar/InterIIT-Quant.git](https://github.com/ishreyanshkumar/InterIIT-Quant.git)
+    cd InterIIT-Quant
     ```
 
 2.  **Install dependencies:**
