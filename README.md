@@ -1,6 +1,48 @@
-# RL Trading System - Complete Guide
+# Algorithmic Strategy Development on Multi-Feature Time Series (Team 33)
+### Inter IIT Tech Meet 14.0 - High-Frequency Trading Challenge
 
 ### Note : The startegy returns depends on the random selection of days. In some combinations few days with very high return might get included (like day87 in EBX and day104 in EBY) resulting in higher returns in some runs, while lower in other runs in which these days are not included in testing. For different runs change the seed in PARAMS['SEED'] to get different results.
+
+## 📈 Executive Summary
+This repository contains the source code for a robust **Reinforcement Learning (RL)** intraday trading strategy developed for the Inter IIT Tech Meet 14.0. The model leverages **Proximal Policy Optimization (PPO)** to navigate high-frequency market data, utilizing a rich state space of technical indicators, Heikin-Ashi structures, and adaptive volatility measures.
+
+The strategy is rigorously evaluated on two distinct tickers, EBX and EBY, demonstrating highly profitable and robust performance profiles.
+
+### 🏆 Performance Highlights
+The RL agent demonstrated exceptional risk-adjusted returns and stability in out-of-sample evaluations. [cite_start]According to the performance report, the strategy achieved the following metrics[cite: 18]:
+
+| Metric | EBX (255 Days) | EBY (140 Days) |
+| :--- | :--- | :--- |
+| **Annualized Return** | **81.61%** | **77.97%** |
+| **Calmar Ratio** | **70.96** | **63.91** |
+| **Sharpe Ratio** | 7.30 | 4.91 |
+| **Max Drawdown** | 1.15% | 1.22% |
+| **Win Rate** | ~69% | ~69% |
+| **Avg Trades/Day** | 13.77 | 18.85 |
+
+---
+
+## 🧠 Strategy Architecture
+
+### 1. Data Engineering
+* **Resampling:** Raw tick/second data is resampled into **2-minute candles** to capture meaningful market structure and reduce noise.
+* **Feature Space**:
+    * **Trend:** Heikin-Ashi transformations, Johnny Ribbon (Regime detection).
+    * **Momentum:** RSI, CCI, CMO, Aroon.
+    * **Volatility:** ATR, Standard Deviation, Chop Index.
+    * **Time Encoding:** Cyclical sine/cosine features for time-of-day awareness.
+    * **Adaptive Filters:** KAMA (Kaufman's Adaptive Moving Average).
+
+### 2. Reinforcement Learning (PPO)
+* **Agent:** PPO (Proximal Policy Optimization) using `stable-baselines3`.
+* **Policy:** `MlpPolicy` with a dual [256, 256] network architecture.
+* **Reward Function:** A custom shaped reward function incorporating:
+    * Realized PnL scaling.
+    * Penalties for stop-loss hits (`-100`) and end-of-day forced closures (`-10`).
+    * Bonuses for "waiting" to avoid over-trading in chop (`0.1`).
+* **Training:** Parallelized environments (`SubprocVecEnv`) with `VecNormalize` for stable convergence.
+
+---
 
 ## Quick Start 
 ### Install Dependencies
@@ -155,6 +197,29 @@ After test:
 ✓ test_trade_plots/ (folder with per-day charts)
 ✓ signals_EBX/ (folder with signal CSVs)
 ```
+
+---
+
+## 📊 Visual Analysis
+
+The strategy produces comprehensive visual diagnostics found in `test_trade_plots/` and `training_plots/`:
+* **Equity Curves:** Visual confirmation of steady capital growth.
+* **Drawdown Charts:** Monitoring of risk depth and duration.
+* **Trade Visualization:** Candlestick charts overlayed with Entry/Exit points for every test day.
+* **Training Metrics:** Entropy loss and Explained Variance plots to verify convergence.
+
+---
+
+## 📜 Requirements
+
+* Python 3.8+
+* `numpy`
+* `pandas`
+* `gymnasium`
+* `stable-baselines3`
+* `torch`
+* `matplotlib`
+* `tqdm`
 
 
 
