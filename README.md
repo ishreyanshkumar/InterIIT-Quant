@@ -9,7 +9,7 @@ This repository contains the source code for a robust **Reinforcement Learning (
 The strategy is rigorously evaluated on two distinct tickers, EBX and EBY, demonstrating highly profitable and robust performance profiles.
 
 ### 🏆 Performance Highlights
-The RL agent demonstrated exceptional risk-adjusted returns and stability in out-of-sample evaluations. [cite_start]According to the performance report, the strategy achieved the following metrics[cite: 18]:
+The RL agent demonstrated exceptional risk-adjusted returns and stability in out-of-sample evaluations. According to the performance report, the strategy achieved the following metrics:
 
 | Metric | EBX (255 Days) | EBY (140 Days) |
 | :--- | :--- | :--- |
