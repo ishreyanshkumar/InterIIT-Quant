@@ -1,4 +1,4 @@
-# Algorithmic Strategy Development on Multi-Feature Time Series (Team 33)
+# Algorithmic Strategy Development on Multi-Feature Time Series 
 ### Inter IIT Tech Meet 14.0 - High-Frequency Trading Challenge
 
 ### Note : The startegy returns depends on the random selection of days. In some combinations few days with very high return might get included (like day87 in EBX and day104 in EBY) resulting in higher returns in some runs, while lower in other runs in which these days are not included in testing. For different runs change the seed in PARAMS['SEED'] to get different results.
@@ -220,6 +220,7 @@ The strategy produces comprehensive visual diagnostics found in `test_trade_plot
 * `torch`
 * `matplotlib`
 * `tqdm`
+
 
 
 
